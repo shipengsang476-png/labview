@@ -1,0 +1,31 @@
+﻿original_path,current_path,category,detected_dependencies,action,notes
+src/1111.vi,src/SerialPortConfig_Example.vi,serial,NI-VISA,renamed,串口配置示例；未检测到仓库内部调用者
+src/20191101DEMO.vi,src/DAQmxDigitalOutput_2019-11-01.vi,daq,NI-DAQmx; NI Vision; MindVision SDK,renamed,以 DAQmx 数字输出调用为主；保留原文件名中的日期
+src/2222.vi,src/Unclassified_2222.vi,unclassified,,renamed,无法从静态元数据可靠判断用途，避免过度命名
+src/Demo.vi,src/CameraVision_Demo_v01.vi,camera-vision,NI Vision; MindVision SDK,renamed,按原 Demo 编号映射为 v01
+src/Demo2.vi,src/CameraVision_Demo_v02.vi,camera-vision,NI Vision; MindVision SDK,renamed,按原 Demo2 编号映射为 v02
+src/Demo3.vi,src/CameraVision_Demo_v03.vi,camera-vision,NI Vision; MindVision SDK,renamed,按原 Demo3 编号映射为 v03
+src/Demo删除.vi,src/CameraVision_Demo_Legacy.vi,camera-vision,NI Vision; MindVision SDK,renamed,原名带“删除”，改为 Legacy
+src/Demo2删除.vi,src/CameraSerial_Demo_Legacy.vi,camera-serial,NI-VISA; NI Vision; MindVision SDK,renamed,原名带“删除”，改为 Legacy
+src/Demo4.vi,src/CameraSerialController_v04.vi,camera-serial,NI-VISA; NI Vision; MindVision SDK; 控件 1.ctl,renamed,相机、串口和自定义控件综合版本
+src/Demo6.vi,src/CameraSerialController_v06.vi,camera-serial,NI-VISA; NI Vision; MindVision SDK; 控件 1.ctl,renamed,相机、串口和自定义控件综合版本
+src/Demo5555.vi,src/CameraSerialController_Experiment5555.vi,camera-serial,NI-VISA; NI Vision; MindVision SDK; 控件 1.ctl,renamed,保留 5555 作为实验标识
+src/Demo_new.vi,src/CameraSerialController_2024-04-21.vi,camera-serial,NI-VISA; NI Vision; MindVision SDK; 控件 1.ctl,renamed,以原文件修改日期替代含糊的 new
+src/Demo_20240512.vi,src/CameraSerialController_2024-05-12.vi,camera-serial,NI-VISA; NI Vision; MindVision SDK; 控件 1.ctl,renamed,日期统一为 ISO 格式
+src/Demo_sobel.vi,src/CameraSobelEdgeDetection.vi,camera-vision,NI-VISA; NI Vision; MindVision SDK; 控件 1.ctl,renamed,检测到 IMAQ EdgeDetection/Sobel 相关调用
+src/Image for Use_0.vi,src/Image for Use_0.vi,shared-image,NI Vision,retained_dependency,被多个相机 VI 引用，保留原名
+src/Initialize the camera.vi,src/InitializeCamera.vi,camera,MindVision SDK,renamed,统一为简洁的动作+对象命名
+src/上位机.vi,src/SerialHostUI.vi,serial,NI-VISA,renamed,串口上位机界面
+src/控件 1.ctl,src/控件 1.ctl,type-definition,,retained_dependency,被多个综合 VI 引用，需在 LabVIEW 内改名
+src/demo/Demo111.vi,src/demo/CameraSerialPrototype_111.vi,camera-serial,NI-VISA; NI Vision; MindVision SDK; 控件 1.ctl,renamed,原型实验，保留 111 标识
+src/demo/Demo222.vi,src/demo/CameraSerialPrototype_222.vi,camera-serial,NI-VISA; NI Vision; MindVision SDK,renamed,原型实验，保留 222 标识
+src/demo/Image for Use_0.vi,src/demo/Image for Use_0.vi,shared-image,NI Vision,retained_dependency,被 demo 目录中的原型 VI 引用，保留原名
+src/demo/清除.vi,src/demo/CloseIMAQdxCamera.vi,camera,NI Vision Acquisition Software,renamed,检测到 IMAQdx Close Camera 调用
+src/LabVIEW串口调试/LabVIEW串口调试.lvproj,src/LabVIEW串口调试/SerialDebugger.lvproj,project,NI-VISA,renamed,项目文件改为清晰的英文名称
+src/LabVIEW串口调试/SubVI/Demo/XY图多条曲线显示.vi,src/LabVIEW串口调试/SubVI/Demo/PlotMultipleXYCurves.vi,plotting,,renamed,按原中文用途翻译
+src/LabVIEW串口调试/SubVI/Demo/串口通讯Demo.vi,src/LabVIEW串口调试/SubVI/Demo/SerialCommunication_Demo.vi,serial,NI-VISA,renamed,按原中文用途翻译
+src/LabVIEW串口调试/SubVI/Demo/状态机.ctl,src/LabVIEW串口调试/SubVI/Demo/状态机.ctl,type-definition,,retained_dependency,被 PlanckExperiment_Main.vi 引用
+src/LabVIEW串口调试/SubVI/Demo/状态机0.ctl,src/LabVIEW串口调试/SubVI/Demo/状态机0.ctl,type-definition,,retained_dependency,被主程序1系列 VI 引用
+src/LabVIEW串口调试/User Interface/Planck_UP.vi,src/LabVIEW串口调试/User Interface/PlanckExperiment_Main.vi,serial-ui,NI-VISA; 状态机.ctl,renamed,明确其为普朗克实验主界面
+src/LabVIEW串口调试/User Interface/主程序1 - 副本.vi,src/LabVIEW串口调试/User Interface/主程序1 - 副本.vi,serial-ui,NI-VISA; 状态机0.ctl,retained_cautious,历史副本，内部保留主程序1名称信息；暂不强制改名
+src/LabVIEW串口调试/User Interface/主程序1.vi,src/LabVIEW串口调试/User Interface/主程序1.vi,serial-ui,NI-VISA; 状态机0.ctl,retained_dependency,与副本文件存在内部名称/引用关系，暂保留原名
