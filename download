@@ -1,0 +1,22 @@
+# LabVIEW source artifacts are binary. Disable text diffs and automatic merges.
+*.vi binary
+*.ctl binary
+*.vit binary
+
+# Native third-party binaries are binary.
+*.dll binary
+*.docx binary
+
+# LabVIEW project/library metadata is XML text.
+*.lvproj text eol=crlf
+*.lvlib text eol=crlf
+*.lvclass text eol=crlf
+
+# Repository documentation and scripts.
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.md text eol=lf
+*.csv text eol=lf
+*.txt text eol=lf
+*.py text eol=lf
+*.cmd text eol=crlf

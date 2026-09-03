@@ -1,0 +1,29 @@
+# LabVIEW machine- and user-specific files
+*.aliases
+*.lvlps
+*.lvproj.user
+*.lvuser
+
+# Temporary and backup files
+*.vi~
+*.ctl~
+*.tmp
+*.bak
+~$*
+
+# LabVIEW build outputs
+Builds/
+builds/
+build/
+dist/
+*.installer
+
+# OS/editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/
+
+# MVCAMSDK.dll under third_party/ is intentionally tracked.
+# Do not add a blanket *.dll ignore rule unless the dependency strategy changes.
