@@ -1,42 +1,35 @@
-# LabVIEW 文件改名说明
+# LabVIEW File Renaming and Dependency Notes
 
-## 已采用的安全边界
+## Why three Chinese filenames remain
 
-本次整理先对全部 `.vi` 和 `.ctl` 做了静态字符串扫描，检查当前文件名是否出现在其他 LabVIEW 二进制文件的路径资源中。
+LabVIEW `.vi` and `.ctl` files are binary resources that can store dependency paths. Static inspection found the following exact filenames embedded in callers:
 
-只对以下类型进行文件系统级改名：
-
-- 未检测到本仓库内部调用者的顶层 VI
-- 独立示例 VI
-- 独立项目文件 `.lvproj`
-- 未检测到内部调用者的演示 SubVI
-
-被其他 VI 引用的辅助 VI、类型定义控件和状态机控件保留原名。
-
-## 保留原名的依赖文件
-
-| 文件 | 检测到的调用情况 | 处理 |
+| Retained filename | Known callers | Suggested future English name |
 |---|---|---|
-| `src/Image for Use_0.vi` | 多个相机/图像 VI 引用 | 保留原名 |
-| `src/demo/Image for Use_0.vi` | `demo/` 下原型 VI 引用 | 保留原名 |
-| `src/控件 1.ctl` | 多个相机串口综合 VI 引用 | 保留原名 |
-| `状态机.ctl` | `PlanckExperiment_Main.vi` 引用 | 保留原名 |
-| `状态机0.ctl` | `主程序1.vi` 系列引用 | 保留原名 |
-| `主程序1.vi` | 副本文件中保留相同内部名称/引用信息 | 保留原名 |
+| `src/控件 1.ctl` | Several camera/serial controller VIs | `CameraControl.ctl` |
+| `src/serial-debugger/SubVI/Demo/状态机.ctl` | `PlanckExperiment_Main.vi` | `StateMachine.ctl` |
+| `src/serial-debugger/SubVI/Demo/状态机0.ctl` | The two legacy Planck main VIs | `StateMachineLegacy.ctl` |
 
-## 后续继续改名的正确方式
+Changing these filenames only in the operating system or Git changes the file on disk but does not update binary callers. NI recommends renaming LabVIEW files through LabVIEW so callers and project items can be updated.
 
-1. 在 LabVIEW 中打开完整项目或调用层级。
-2. 确认所有调用者已经加载到内存或已包含在项目中。
-3. 对目标 VI 使用 `File -> Save As`，选择 Rename，而不是在资源管理器中直接改名。
-4. 检查调用者是否已更新到新路径。
-5. 保存全部调用者和项目文件。
-6. 关闭 LabVIEW 后重新打开项目，确认无缺失依赖。
-7. 运行 VI Analyzer、Mass Compile 或至少执行错误列表检查（视本机工具可用情况而定）。
+Official NI reference:
 
-## 注意事项
+- https://www.ni.com/docs/en-US/bundle/labview/page/renaming-files-and-project-items.html
 
-- 同名 `Image for Use_0.vi` 在两个目录中各有一份，不要随意合并；不同调用者可能依赖各自目录中的副本。
-- MindVision 示例中可能保存过原开发机的绝对路径。首次打开时需要人工重新定位 SDK 文件或辅助 VI。
-- `.vi` 文件外部改名后，文件内部仍可能保留旧的历史名称信息；在 LabVIEW 中打开并保存可完成规范化。
-- `主程序1 - 副本.vi` 是历史备份。确认主程序可运行后，可在单独分支中删除，而不是长期与主文件并行维护。
+## Safe future procedure
+
+1. Make a clean Git commit before renaming.
+2. Open the complete project/calling hierarchy in LabVIEW.
+3. Confirm all current dependencies resolve.
+4. Use **File > Save As** with the rename option, or the project rename operation.
+5. Save every caller and the project.
+6. Close and reopen the project to verify there are no missing items.
+7. Commit the rename and all caller changes together.
+
+## Renames performed in this package
+
+- Entry VIs that are not referenced by other supplied files were renamed to descriptive English names.
+- The serial project root was renamed to `serial-debugger` while keeping the relative `SubVI/Demo` layout used by the VIs.
+- The two legacy main VIs were renamed to English because no other supplied binary contains their old filenames.
+- The three dependency-sensitive controls were not renamed.
+- `Image for Use_0.vi` remains unchanged because multiple VIs reference that exact English filename.
